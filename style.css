@@ -61,29 +61,25 @@ main{
 }
 
 #botao-buscar{
-
-    padding:15px 30px;
-
-    border:none;
-
-    border-radius:8px;
-
-    background:#2563eb;
-
-    color:white;
-
-    cursor:pointer;
-
-    font-size:17px;
-
-    transition:.3s;
-
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 #botao-buscar:hover{
+    background: #1d4ed8;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
 
-    background:#1d4ed8;
-
+#botao-buscar:active{
+    transform: scale(0.98);
 }
 
 #resultado{
@@ -135,49 +131,39 @@ main{
 }
 
 .card{
+    background: #f5f7fb;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    background:#f5f7fb;
-
-    padding:15px;
-
-    border-radius:10px;
-
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-
+.card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
 }
 
 .card h3{
-
-    color:#2563eb;
-
-    margin-bottom:8px;
-
+    color: #2563eb;
+    margin-bottom: 8px;
 }
 
-@media(max-width:700px){
+@media (max-width:700px){
 
-.informacoes{
+    .informacoes{
+        grid-template-columns: 1fr;
+    }
 
-grid-template-columns:1fr;
+    header h1{
+        font-size: 32px;
+    }
 
-}
+    #campo-raca{
+        width: 100%;
+    }
 
-header h1{
-
-font-size:32px;
-
-}
-
-#campo-raca{
-
-width:100%;
-
-}
-
-#botao-buscar{
-
-width:100%;
-
-}
+    #botao-buscar{
+        width: 100%;
+    }
 
 }
