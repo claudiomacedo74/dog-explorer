@@ -90,5 +90,5 @@ dog-explorer/
 **Repositório GitHub:**
 
 ```
-https://github.com/cladiomacedo74/dog-explorer
+https://github.com/claudiomacedo74/dog-explorer
 ```
