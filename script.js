@@ -18,7 +18,7 @@ async function buscarRaca() {
     }
 
     resultado.innerHTML = `
-        <h2>Carregando...</h2>
+        <h2>🔎 Buscando informações da raça...</h2>
     `;
 
     try {
@@ -41,7 +41,7 @@ async function buscarRaca() {
         if (dados.length === 0) {
 
             resultado.innerHTML = `
-                <h2>Raça não encontrada.</h2>
+                <h2>❌ Nenhuma raça encontrada. Verifique o nome digitado e tente novamente.</h2>
             `;
 
             return;
