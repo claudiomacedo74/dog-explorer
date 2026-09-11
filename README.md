@@ -84,7 +84,7 @@ dog-explorer/
 **Aplicação (GitHub Pages):**
 
 ```
-https://cladiomacedo74.github.io/dog-explorer/
+ https://claudiomacedo74.github.io/dog-explorer/
 ```
 
 **Repositório GitHub:**
