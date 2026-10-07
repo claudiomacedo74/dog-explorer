@@ -1,6 +1,18 @@
+const SUPABASE_URL = "https://amedgahohtidpmkfwakz.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_bXjq_W-Yzg4AyUcpxtgtTg_0jjwFKq9";
+
+const banco = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+
 const botaoBuscar = document.getElementById("botao-buscar");
 const campoRaca = document.getElementById("campo-raca");
 const resultado = document.getElementById("resultado");
+const listaFavoritos = document.getElementById("lista-favoritos");
 
 const API_KEY = "live_X9FQZEOJjzr6I2wUjlQXQtLXa4gafZq86gvEPuwFx2wCTVd8hJIGGutULvUQiB42";
 
@@ -193,9 +205,14 @@ resultado.innerHTML = `
     </div>
 
 </div>
+<button id="btn-favoritar">
+    ❤️ Adicionar aos Favoritos
+</button>
 
 `;
-
+document.getElementById("btn-favoritar").addEventListener("click", () => {
+    salvarFavorito(cachorro, foto, temperamento);
+});
 
     }
 
@@ -208,4 +225,96 @@ resultado.innerHTML = `
         console.error(erro);
 
     }
+}
+
+async function salvarFavorito(cachorro, foto, temperamento) {
+
+    const { error } = await banco
+        .from("favoritos")
+        .insert([
+            {
+                nome_raca: cachorro.name,
+                imagem: foto,
+                temperamento: temperamento
+            }
+        ]);
+
+    if (error) {
+        console.error(error);
+        alert("Erro ao salvar favorito.");
+        return;
+    }
+
+    alert("✅ Raça adicionada aos favoritos com sucesso!");
+    listarFavoritos();
+}
+
+
+async function listarFavoritos() {
+
+    const { data, error } = await banco
+        .from("favoritos")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        console.error(error);
+        listaFavoritos.innerHTML = "<p>Erro ao carregar favoritos.</p>";
+        return;
+    }
+
+    if (data.length === 0) {
+        listaFavoritos.innerHTML = "<p>Nenhuma raça favoritada ainda.</p>";
+        return;
+    }
+
+    listaFavoritos.innerHTML = "";
+
+    data.forEach(favorito => {
+
+        listaFavoritos.innerHTML += `
+            <div class="card favorito-card">
+
+                <img
+                    src="${favorito.imagem}"
+                    alt="${favorito.nome_raca}"
+                >
+
+                <h3>${favorito.nome_raca}</h3>
+
+                <p>${favorito.temperamento}</p>
+
+                <button onclick="removerFavorito(${favorito.id})">
+                    🗑️ Excluir
+                </button>
+
+            </div>
+        `;
+    });
+}
+
+listarFavoritos();
+
+async function removerFavorito(id) {
+
+    const confirmar = confirm("Deseja realmente excluir este favorito?");
+
+    if (!confirmar) {
+        return;
+    }
+
+    const { error } = await banco
+        .from("favoritos")
+        .delete()
+        .eq("id", id);
+
+    if (error) {
+        console.error(error);
+        alert("Erro ao excluir favorito.");
+        return;
+    }
+
+    alert("🗑️ Favorito removido com sucesso!");
+
+    listarFavoritos();
 }
