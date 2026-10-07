@@ -66,22 +66,22 @@ https://api.thedogapi.com/v1/breeds/search?q={nome_da_raca}
 
 # Persistência dos Dados
 
-A aplicação utiliza o **Supabase** como banco de dados para armazenar os favoritos do usuário.
+A aplicação utiliza o **Supabase** como banco de dados para armazenar os favoritos.
 
-Foi criada uma tabela chamada **favoritos**, contendo os seguintes campos:
+Foi criada uma tabela chamada **favoritos**, contendo os campos:
 
 - id
 - nome
 - foto
 - temperamento
 
-Sempre que um favorito é adicionado, ele é armazenado no banco de dados e permanece salvo mesmo após fechar o navegador.
+Sempre que um favorito é adicionado, ele permanece salvo no banco de dados, mesmo após fechar o navegador.
 
-A aplicação também permite:
+A aplicação permite realizar as seguintes operações:
 
-- Criar favoritos (CREATE)
-- Listar favoritos (READ)
-- Excluir favoritos (DELETE)
+- CREATE (Adicionar favoritos)
+- READ (Listar favoritos)
+- DELETE (Excluir favoritos)
 
 ---
 
@@ -111,7 +111,7 @@ docker run -d -p 8080:80 claudiomacedo74/dog-explorer:latest
 
 Depois acesse:
 
-```
+```text
 http://localhost:8080
 ```
 
@@ -127,7 +127,7 @@ dog-explorer/
 ├── script.js
 ├── Dockerfile
 ├── .dockerignore
-├── README.md
+└── README.md
 ```
 
 ---
@@ -142,7 +142,7 @@ Arquivos ignorados:
 - README.md
 - .vscode
 
-Essa prática reduz o tamanho da imagem Docker e torna o processo de build mais rápido.
+Isso reduz o tamanho da imagem Docker e torna o processo de build mais rápido.
 
 ---
 
@@ -172,31 +172,22 @@ Foram executados dois containers simultaneamente utilizando a mesma imagem Docke
 
 Container 1:
 
-```
-<<<<<<< HEAD
+```text
 localhost:8080
-=======
- https://claudiomacedo74.github.io/dog-explorer/
->>>>>>> fa91fd8213f29d3346f36913e032f22dbdfc6646
 ```
 
 Container 2:
 
-```
-<<<<<<< HEAD
+```text
 localhost:8081
 ```
 
-Evidência:
-
 ## Evidência
 
-![Docker PS](imagens/docker-ps.png)
-
-Exemplo:
 
 ```md
 ![Docker PS](imagens/docker-ps.png)
+```
 
 ---
 
@@ -242,7 +233,4 @@ O avaliador poderá executar a aplicação utilizando apenas:
 
 ```bash
 docker run -d -p 8080:80 claudiomacedo74/dog-explorer:latest
-```
-=======
-https://github.com/claudiomacedo74/dog-explorer
 ```
