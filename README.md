@@ -173,12 +173,17 @@ Foram executados dois containers simultaneamente utilizando a mesma imagem Docke
 Container 1:
 
 ```
+<<<<<<< HEAD
 localhost:8080
+=======
+ https://claudiomacedo74.github.io/dog-explorer/
+>>>>>>> fa91fd8213f29d3346f36913e032f22dbdfc6646
 ```
 
 Container 2:
 
 ```
+<<<<<<< HEAD
 localhost:8081
 ```
 
@@ -241,3 +246,7 @@ O avaliador poderá executar a aplicação utilizando apenas:
 ```bash
 docker run -d -p 8080:80 claudiomacedo74/dog-explorer:latest
 ```
+=======
+https://github.com/claudiomacedo74/dog-explorer
+```
+>>>>>>> fa91fd8213f29d3346f36913e032f22dbdfc6646
