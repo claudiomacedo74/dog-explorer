@@ -197,9 +197,6 @@ Exemplo:
 
 ```md
 ![Docker PS](imagens/docker-ps.png)
-```
-
-(Substitua o caminho pelo local onde você salvou o print.)
 
 ---
 
@@ -249,4 +246,3 @@ docker run -d -p 8080:80 claudiomacedo74/dog-explorer:latest
 =======
 https://github.com/claudiomacedo74/dog-explorer
 ```
->>>>>>> fa91fd8213f29d3346f36913e032f22dbdfc6646
